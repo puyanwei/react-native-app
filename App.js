@@ -1,9 +1,5 @@
-import React from 'react';
-import {
-	StyleSheet,
-	Text,
-	View
-} from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
 const styles = StyleSheet.create({
 	container: {
@@ -11,13 +7,25 @@ const styles = StyleSheet.create({
 		backgroundColor: '#fff',
 		alignItems: 'center',
 		justifyContent: 'center',
+	},
+	button: {
+		marginTop: 10
 	}
 });
 
 const App = () => {
+	const [name, setName] = useState('Ryu')
+
+	const handleClick = () => {
+		setName('Chun-Li')
+	}
+
 	return (
 		<View style={styles.container}>
-			<Text>Hello</Text>
+			<Text>My name is {name}</Text>
+			<View style={styles.button}>
+				<Button title="Change Name" onPress={handleClick} />
+			</View>
 		</View>
 	);
 }
